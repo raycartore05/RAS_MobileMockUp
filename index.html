@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAS Bank Mobile App Mockups - iOS, Android, Huawei</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .mockups-container {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .device-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .device-label {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .device-frame {
+            position: relative;
+            filter: drop-shadow(0 25px 50px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .device-frame:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* iOS Device */
+        .ios-device {
+            width: 320px;
+            height: 680px;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .ios-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background: #1a1a1a;
+            border-radius: 0 0 15px 15px;
+            z-index: 10;
+        }
+
+        .ios-screen {
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Android Device */
+        .android-device {
+            width: 320px;
+            height: 680px;
+            background: #2a2a2a;
+            border-radius: 35px;
+            padding: 8px;
+            position: relative;
+        }
+
+        .android-camera {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 8px;
+            background: #000;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .android-screen {
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 27px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Huawei Device */
+        .huawei-device {
+            width: 320px;
+            height: 680px;
+            background: linear-gradient(135deg, #ff6b6b, #ff3838);
+            border-radius: 45px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .huawei-camera {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 60px;
+            height: 25px;
+            background: #000;
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        .huawei-screen {
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Common App UI Elements */
+        .status-bar {
+            height: 44px;
+            background: #1e3a8a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .ios .status-bar {
+            padding-top: 25px;
+            height: 69px;
+            background: linear-gradient(to bottom, #1e3a8a, #2563eb);
+        }
+
+        .android .status-bar {
+            background: #1e3a8a;
+            padding-top: 5px;
+        }
+
+        .huawei .status-bar {
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            padding-top: 30px;
+            height: 74px;
+        }
+
+        .status-left {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .status-right {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* App Header */
+        .app-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 20px;
+            color: white;
+        }
+
+        .app-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .fern-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .app-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .balance-card {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .balance-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .balance-amount {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .balance-sub {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .quick-actions-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+
+        .ios .action-icon {
+            border-radius: 12px;
+        }
+
+        .android .action-icon {
+            border-radius: 50%;
+            background: #1e3a8a;
+        }
+
+        .huawei .action-icon {
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff3838 100%);
+        }
+
+        .action-label {
+            font-size: 10px;
+            color: #4a5568;
+            text-align: center;
+        }
+
+        /* Transaction List */
+        .transactions {
+            padding: 20px;
+            background: white;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .see-all {
+            font-size: 12px;
+            color: #3b82f6;
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .transaction-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .transaction-icon {
+            width: 40px;
+            height: 40px;
+            background: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .transaction-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transaction-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .transaction-date {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .transaction-amount {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .amount-positive {
+            color: #10b981;
+        }
+
+        .amount-negative {
+            color: #1a1a1a;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .ios .bottom-nav {
+            padding-bottom: 20px;
+            background: #f8f9fa;
+        }
+
+        .android .bottom-nav {
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+
+        .huawei .bottom-nav {
+            background: linear-gradient(to top, #ffffff, #f8f9fa);
+            padding-bottom: 15px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            padding: 5px;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        .nav-label {
+            font-size: 10px;
+            color: #6b7280;
+        }
+
+        .nav-item.active .nav-icon {
+            color: #1e3a8a;
+        }
+
+        .nav-item.active .nav-label {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        /* Platform-specific styles */
+        .ios .nav-item.active .nav-icon {
+            color: #007AFF;
+        }
+
+        .android .nav-item.active .nav-icon {
+            color: #1e3a8a;
+        }
+
+        .huawei .nav-item.active .nav-icon {
+            color: #ff3838;
+        }
+
+        /* Export info */
+        .export-info {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .export-info h2 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .export-info p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .spec-card {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .spec-card h3 {
+            color: #1e3a8a;
+            font-size: 14px;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-card p {
+            font-size: 12px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RAS Bank Mobile App Mockups</h1>
+        <p>iOS, Android & HarmonyOS Designs for Figma</p>
+    </div>
+
+    <div class="mockups-container">
+        <!-- iOS Mockup -->
+        <div class="device-wrapper">
+            <div class="device-label">iOS (iPhone 14 Pro)</div>
+            <div class="device-frame">
+                <div class="ios-device">
+                    <div class="ios-notch"></div>
+                    <div class="ios-screen">
+                        <div class="ios">
+                            <!-- Status Bar -->
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span>9:41</span>
+                                </div>
+                                <div class="status-right">
+                                    <span>📶</span>
+                                    <span>📶</span>
+                                    <span>🔋</span>
+                                </div>
+                            </div>
+
+                            <!-- App Header -->
+                            <div class="app-header">
+                                <div class="app-logo">
+                                    <svg class="fern-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30 50 Q 20 30, 35 20 T 35 35 T 40 30 T 40 40 T 45 35 T 45 45 T 50 40 T 50 50 T 55 45 T 55 55 T 60 50 T 60 60 T 65 55 T 65 65 Q 50 80, 30 50" 
+                                              fill="white" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                    <span class="app-title">RAS Bank</span>
+                                </div>
+                                <div class="balance-card">
+                                    <div class="balance-label">Total Balance</div>
+                                    <div class="balance-amount">$12,485.50</div>
+                                    <div class="balance-sub">Available: $11,985.50</div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="quick-actions">
+                                <div class="quick-actions-title">Quick Actions</div>
+                                <div class="action-grid">
+                                    <div class="action-item">
+                                        <div class="action-icon">💳</div>
+                                        <span class="action-label">Pay</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">↗️</div>
+                                        <span class="action-label">Transfer</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">📊</div>
+                                        <span class="action-label">Bills</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">🏦</div>
+                                        <span class="action-label">More</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transactions -->
+                            <div class="transactions">
+                                <div class="section-header">
+                                    <span class="section-title">Recent Transactions</span>
+                                    <span class="see-all">See all →</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">🛒</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Countdown</span>
+                                            <span class="transaction-date">Today, 2:30 PM</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-negative">-$82.50</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">💰</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Salary Deposit</span>
+                                            <span class="transaction-date">Yesterday</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-positive">+$3,250.00</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">☕</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Mojo Coffee</span>
+                                            <span class="transaction-date">Yesterday</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-negative">-$5.50</span>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Navigation -->
+                            <div class="bottom-nav">
+                                <div class="nav-item active">
+                                    <span class="nav-icon">🏠</span>
+                                    <span class="nav-label">Home</span>
+                                </div>
+                                <div class="nav-item">
+                                    <span class="nav-icon">💳</span>
+                                    <span class="nav-label">Cards</span>
+                                </div>
+                                <div class="nav-item">
+                                    <span class="nav-icon">📈</span>
+                                    <span class="nav-label">Analytics</span>
+                                </div>
+                                <div class="nav-item">
+                                    <span class="nav-icon">👤</span>
+                                    <span class="nav-label">Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Android Mockup -->
+        <div class="device-wrapper">
+            <div class="device-label">Android (Pixel 7)</div>
+            <div class="device-frame">
+                <div class="android-device">
+                    <div class="android-camera"></div>
+                    <div class="android-screen">
+                        <div class="android">
+                            <!-- Status Bar -->
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span>9:41 AM</span>
+                                </div>
+                                <div class="status-right">
+                                    <span>📶</span>
+                                    <span>📶</span>
+                                    <span>🔋</span>
+                                </div>
+                            </div>
+
+                            <!-- App Header -->
+                            <div class="app-header">
+                                <div class="app-logo">
+                                    <svg class="fern-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30 50 Q 20 30, 35 20 T 35 35 T 40 30 T 40 40 T 45 35 T 45 45 T 50 40 T 50 50 T 55 45 T 55 55 T 60 50 T 60 60 T 65 55 T 65 65 Q 50 80, 30 50" 
+                                              fill="white" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                    <span class="app-title">RAS Bank</span>
+                                </div>
+                                <div class="balance-card">
+                                    <div class="balance-label">Total Balance</div>
+                                    <div class="balance-amount">$12,485.50</div>
+                                    <div class="balance-sub">Available: $11,985.50</div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="quick-actions">
+                                <div class="quick-actions-title">Quick Actions</div>
+                                <div class="action-grid">
+                                    <div class="action-item">
+                                        <div class="action-icon">💳</div>
+                                        <span class="action-label">Pay</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">↗️</div>
+                                        <span class="action-label">Transfer</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">📊</div>
+                                        <span class="action-label">Bills</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">🏦</div>
+                                        <span class="action-label">More</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transactions -->
+                            <div class="transactions">
+                                <div class="section-header">
+                                    <span class="section-title">Recent Transactions</span>
+                                    <span class="see-all">See all →</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">🛒</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Pak'nSave</span>
+                                            <span class="transaction-date">Today, 2:30 PM</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-negative">-$82.50</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">💰</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Salary Deposit</span>
+                                            <span class="transaction-date">Yesterday</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-positive">+$3,250.00</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">⛽</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Z Energy</span>
+                                            <span class="transaction-date">2 days ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-negative">-$95.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Navigation -->
+                            <div class="bottom-nav">
+                                <div class="nav-item active">
+                                    <span class="nav-icon">🏠</span>
+                                    <span class="nav-label">Home</span>
+                                </div>
+                                <div class="nav-item">
+                                    <span class="nav-icon">💳</span>
+                                    <span class="nav-label">Cards</span>
+                                </div>
+                                <div class="nav-item">
+                                    <span class="nav-icon">📈</span>
+                                    <span class="nav-label">Analytics</span>
+                                </div>
+                                <div class="nav-item">
+                                    <span class="nav-icon">👤</span>
+                                    <span class="nav-label">Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Huawei Mockup -->
+        <div class="device-wrapper">
+            <div class="device-label">Huawei (P60 Pro)</div>
+            <div class="device-frame">
+                <div class="huawei-device">
+                    <div class="huawei-camera"></div>
+                    <div class="huawei-screen">
+                        <div class="huawei">
+                            <!-- Status Bar -->
+                            <div class="status-bar">
+                                <div class="status-left">
+                                    <span>9:41</span>
+                                </div>
+                                <div class="status-right">
+                                    <span>5G</span>
+                                    <span>📶</span>
+                                    <span>🔋</span>
+                                </div>
+                            </div>
+
+                            <!-- App Header -->
+                            <div class="app-header">
+                                <div class="app-logo">
+                                    <svg class="fern-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30 50 Q 20 30, 35 20 T 35 35 T 40 30 T 40 40 T 45 35 T 45 45 T 50 40 T 50 50 T 55 45 T 55 55 T 60 50 T 60 60 T 65 55 T 65 65 Q 50 80, 30 50" 
+                                              fill="white" stroke="white" stroke-width="2"/>
+                                    </svg>
+                                    <span class="app-title">RAS Bank</span>
+                                </div>
+                                <div class="balance-card">
+                                    <div class="balance-label">Total Balance</div>
+                                    <div class="balance-amount">$12,485.50</div>
+                                    <div class="balance-sub">Available: $11,985.50</div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="quick-actions">
+                                <div class="quick-actions-title">Quick Actions</div>
+                                <div class="action-grid">
+                                    <div class="action-item">
+                                        <div class="action-icon">💳</div>
+                                        <span class="action-label">Pay</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">↗️</div>
+                                        <span class="action-label">Transfer</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">📊</div>
+                                        <span class="action-label">Bills</span>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-icon">🏦</div>
+                                        <span class="action-label">More</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transactions -->
+                            <div class="transactions">
+                                <div class="section-header">
+                                    <span class="section-title">Recent Transactions</span>
+                                    <span class="see-all">See all →</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">🛒</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">New World</span>
+                                            <span class="transaction-date">Today, 2:30 PM</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-negative">-$82.50</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">💰</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">Salary Deposit</span>
+                                            <span class="transaction-date">Yesterday</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-positive">+$3,250.00</span>
+                                </div>
+                                <div class="transaction-item">
+                                    <div class="transaction-left">
+                                        <div class="transaction-icon">🚌</div>
+                                        <div class="transaction-details">
+                                            <span class="transaction-name">AT HOP Card</span>
+                                            <span class="transaction-date">2 days ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="transaction-amount amount-negative">-$20.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Navigation -->
+                            <div class="bottom-nav">
+                                <div class="nav-item active">
+                                    <span class="
